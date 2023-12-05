@@ -94,11 +94,9 @@ export default class Bot {
 
     if (s3obj?.Body) {
       const latestPost: LatestPost = JSON.parse(await s3obj.Body.transformToString());
-      if (latestPost.isFake) {
-        const { uri, cid } = latestPost;
-        if (uri && cid) {
-          await bot.post(`This one was ${isFake ? "Fake" : "Real"}`, uri, cid);
-        }
+      const { uri, cid, isFake } = latestPost;
+      if (uri && cid) {
+        await bot.post(`This one was ${isFake ? "Fake" : "Real"}`, uri, cid);
       }
     }
 
