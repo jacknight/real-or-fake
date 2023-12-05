@@ -1,9 +1,8 @@
 name: "Post to Bluesky"
 
-on: workflow_dispatch
-# on:
-#   schedule:
-#     - cron: "30 5,17 * * *"
+on:
+  schedule:
+    - cron: "13 * * * *"
 
 jobs:
   build:
@@ -21,3 +20,8 @@ jobs:
         env:
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
+          AWS_S3_LATEST_POST_BUCKET: ${{secrets.AWS_S3_LATEST_POST_BUCKET}}
+          AWS_S3_LATEST_POST_KEY: ${{secrets.AWS_S3_LATEST_POST_KEY}}
+          AWS_S3_REGION: ${{secrets.AWS_S3_REGION}}
+          DRY_RUN: ${{secrets.DRY_RUN}}
+          OPENAI_KEY: ${{secrets.OPENAI_KEY}}
