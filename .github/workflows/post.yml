@@ -14,9 +14,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm run build
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
       - name: Send post
-        run: npm start
+        run: yarn start
         env:
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
