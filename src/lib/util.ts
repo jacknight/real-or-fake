@@ -91,14 +91,14 @@ export const formatResponse = (completion: string) => {
 
   if (title && category && status && backers && pledged && goal && author && description) {
     return {
-      title: title[1],
-      category: category[1],
-      status: status[1],
-      backers: backers[1],
-      pledged: pledged[1],
-      goal: goal[1],
-      author: author[1],
-      description: description[1],
+      title: title[1].trim(),
+      category: category[1].trim(),
+      status: status[1].trim(),
+      backers: backers[1].trim(),
+      pledged: pledged[1].trim(),
+      goal: goal[1].trim(),
+      author: author[1].trim(),
+      description: description[1].trim(),
     };
   }
 
